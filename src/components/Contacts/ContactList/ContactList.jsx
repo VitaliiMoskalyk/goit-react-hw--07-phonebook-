@@ -7,6 +7,7 @@ import {
   useGetContactsQuery,
   useDeleteContactMutation,
 } from '../../../fetchData/mockApi/mockApi';
+import { Loader } from '../../Loader/Loader';
 
 const ContactList = () => {
   const { data, error, isFetching } = useGetContactsQuery('users');
@@ -28,7 +29,7 @@ const ContactList = () => {
   return (
     <>
       <h2>Contacts </h2>
-      {isFetching && <p>Loading</p>}
+      {isFetching && <Loader />}
       {error && <p>/{error.status}</p>}
       {data && (
         <>
