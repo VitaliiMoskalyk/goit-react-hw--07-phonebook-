@@ -15,10 +15,9 @@ const ContactList = () => {
 
   const [deleteContact] = useDeleteContactMutation();
 
-  const deleteContacts = id => {
-    toast(<ConfirmDelete onClick={() => deleteContact(id)} />, {
-      id: 'clipboard',
-    });
+  const deleteContacts = contact => {
+    deleteContact(contact.id);
+    toast.success(`${contact.name} removed`);
   };
 
   const findForFilter = () =>
@@ -40,7 +39,7 @@ const ContactList = () => {
               <li key={contact.createdAt}>
                 <ContactItem
                   contact={contact}
-                  deleteFunction={deleteContacts}
+                  deleteFunction={() => deleteContacts(contact)}
                 />
               </li>
             ))}

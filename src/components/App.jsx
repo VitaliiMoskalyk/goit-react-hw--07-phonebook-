@@ -10,7 +10,6 @@ export const App = () => {
         <h1>Phonebook</h1>
         <Form />
       </div>
-
       <ContactList />
     </section>
   );

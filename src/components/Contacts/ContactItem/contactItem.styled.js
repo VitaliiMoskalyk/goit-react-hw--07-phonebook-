@@ -51,5 +51,5 @@ outline:none;
 border:none;
 overflow:hidden;
 cursor: pointer;
-background-color:#b1bbdb
+/* background-color:#b1bbdb */
 `

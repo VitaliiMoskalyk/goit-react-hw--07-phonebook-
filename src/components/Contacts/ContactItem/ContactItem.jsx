@@ -8,6 +8,7 @@ import {
   FlexContact,
   Button,
 } from './contactItem.styled';
+import { deleteIcon } from '../../images/delete';
 
 const ContactItem = ({ contact, deleteFunction }) => {
   const { id, name, phone, avatar = defaultImage } = contact;
@@ -20,7 +21,7 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <Number>{phone}</Number>
       </FlexContact>
       <Button type="button" onClick={() => deleteFunction(id)}>
-        X
+        {deleteIcon}
       </Button>
     </ItemWrapper>
   );

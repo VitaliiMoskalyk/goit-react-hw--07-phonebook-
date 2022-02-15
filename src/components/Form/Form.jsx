@@ -5,6 +5,7 @@ import {
   useAddContactMutation,
   useGetContactsQuery,
 } from '../../fetchData/mockApi/mockApi';
+import { addContact } from '../images/add';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -25,6 +26,7 @@ const Form = () => {
     evt.preventDefault();
     const newContact = generateContact(name, phone);
     onSubmitForm(newContact);
+    toast.success(`${name} added`);
     setName('');
     setPhone('');
   };
@@ -63,7 +65,7 @@ const Form = () => {
         />
       </label>
 
-      <FormButton type="submit">+</FormButton>
+      <FormButton type="submit">{addContact}</FormButton>
     </FormWrapper>
   );
 };
