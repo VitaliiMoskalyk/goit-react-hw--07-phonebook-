@@ -1,7 +1,7 @@
 import ContactItem from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
-import { ConfirmDelete } from '../../confirmDelete/ConfirmDelete';
+// import { ConfirmDelete } from '../../confirmDelete/ConfirmDelete';
 import Filter from 'components/Filter';
 import {
   useGetContactsQuery,
