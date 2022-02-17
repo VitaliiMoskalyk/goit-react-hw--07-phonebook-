@@ -4,6 +4,7 @@ export const FormWrapper = styled.form`
 display: flex;
 flex-direction:column;
 align-items:flex-end;
+
 `
 
 export const FormButton = styled.button`

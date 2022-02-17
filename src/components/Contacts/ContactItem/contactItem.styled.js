@@ -4,7 +4,7 @@ export const ItemWrapper = styled.div`
 margin: 5px;
 padding: 5px;
 display: flex;
-justify-content:space-between;
+justify-content:space-space-around;
 align-items:center;
 min-width:289px;
 min-height:70px;
@@ -12,6 +12,7 @@ min-height:70px;
 border-radius:50px;
 
 background-color: rgba(101, 148, 148, 0.171);
+
 `
 
 export const Image = styled.img`

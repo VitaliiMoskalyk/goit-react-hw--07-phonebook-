@@ -8,6 +8,7 @@ import {
   useDeleteContactMutation,
 } from '../../../fetchData/mockApi/mockApi';
 import { Loader } from '../../Loader/Loader';
+import { Accordion } from 'react-bootstrap';
 
 const ContactList = () => {
   const { data, error, isFetching } = useGetContactsQuery('users');
@@ -35,14 +36,16 @@ const ContactList = () => {
           <Filter />
           {findForFilter().length === 0 && <p>you don`t have contacts</p>}
           <ul>
-            {findForFilter().map(contact => (
-              <li key={contact.createdAt}>
-                <ContactItem
-                  contact={contact}
-                  deleteFunction={() => deleteContacts(contact)}
-                />
-              </li>
-            ))}
+            <Accordion>
+              {findForFilter().map(contact => (
+                <li key={contact.createdAt}>
+                  <ContactItem
+                    contact={contact}
+                    deleteFunction={() => deleteContacts(contact)}
+                  />
+                </li>
+              ))}
+            </Accordion>
           </ul>
         </>
       )}

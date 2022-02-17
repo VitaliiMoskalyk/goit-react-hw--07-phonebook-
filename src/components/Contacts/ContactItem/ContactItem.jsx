@@ -9,21 +9,35 @@ import {
   Button,
 } from './contactItem.styled';
 import { deleteIcon } from '../../images/delete';
+import { Accordion } from 'react-bootstrap';
 
 const ContactItem = ({ contact, deleteFunction }) => {
-  const { id, name, phone, avatar = defaultImage } = contact;
+  const { id, name, phone, email, company, avatar = defaultImage } = contact;
 
   return (
-    <ItemWrapper>
-      <Image src={avatar} alt={name} />
-      <FlexContact>
-        <Name>{name}</Name>
-        <Number>{phone}</Number>
-      </FlexContact>
-      <Button type="button" onClick={() => deleteFunction(id)}>
-        {deleteIcon}
-      </Button>
-    </ItemWrapper>
+    <>
+      <Accordion.Item eventKey={id}>
+        <Accordion.Header>
+          <ItemWrapper>
+            <Image src={avatar} alt={name} />
+            <FlexContact>
+              <Name>{name}</Name>
+              <Number>{phone}</Number>
+            </FlexContact>
+          </ItemWrapper>
+        </Accordion.Header>
+        <Accordion.Body>
+          <p>{email}</p>
+          <p>{company}</p>
+          <p>
+            Delete contact
+            <Button type="button" onClick={() => deleteFunction(id)}>
+              {deleteIcon}
+            </Button>
+          </p>
+        </Accordion.Body>
+      </Accordion.Item>
+    </>
   );
 };
 
