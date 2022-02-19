@@ -6,6 +6,7 @@ import {
   useGetContactsQuery,
 } from '../../fetchData/mockApi/mockApi';
 import { addContact } from '../images/add';
+import { TextField } from '@mui/material';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -37,8 +38,41 @@ const Form = () => {
 
   return (
     <FormWrapper onSubmit={contactsAdder}>
-      <label htmlFor={name}>
-        <input
+      {/* <label htmlFor={name}> */}
+      <TextField
+        id="name"
+        label="Name"
+        value={name}
+        variant="outlined"
+        onChange={evt => setName(evt.target.value)}
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        type="text"
+        autoComplete="off"
+        size="small"
+        margin="normal"
+        inputProps={{
+          pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+        }}
+        required
+      />
+      <TextField
+        id="phone"
+        label="Phone"
+        value={phone}
+        variant="outlined"
+        onChange={evt => setPhone(evt.target.value)}
+        title="+3805012345678"
+        type="tel"
+        autoComplete="off"
+        size="small"
+        margin="normal"
+        inputProps={{
+          pattern: '^\\+[\\(\\-]?(\\d[\\(\\)\\-]?){11}\\d$',
+          // '+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}',
+        }}
+        required
+      />
+      {/* <input
           value={name}
           type="text"
           autoComplete="off"
@@ -48,10 +82,10 @@ const Form = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           onChange={evt => setName(evt.target.value)}
-        />
-      </label>
+        /> */}
+      {/* </label> */}
 
-      <label htmlFor={phone}>
+      {/* <label htmlFor={phone}>
         <input
           value={phone}
           onChange={evt => setPhone(evt.target.value)}
@@ -63,7 +97,7 @@ const Form = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
+      </label> */}
 
       <FormButton type="submit">{addContact}</FormButton>
     </FormWrapper>

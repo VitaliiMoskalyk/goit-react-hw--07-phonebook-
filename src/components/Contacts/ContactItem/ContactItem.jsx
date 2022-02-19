@@ -29,6 +29,7 @@ const ContactItem = ({ contact, deleteFunction }) => {
         <Accordion.Body>
           <p>{email}</p>
           <p>{company}</p>
+
           <p>
             Delete contact
             <Button type="button" onClick={() => deleteFunction(id)}>
